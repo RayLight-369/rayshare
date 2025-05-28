@@ -1,5 +1,5 @@
 import { io } from "socket.io-client";
 
-export const socket = io( 'http://localhost:3030', {
+export const socket = io( 'https://rayshare-server.onrender.com/', {
   autoConnect: false
 } );
