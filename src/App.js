@@ -5,7 +5,6 @@ import { Upload, Users, FileText, Download, Moon, Sun } from "lucide-react";
 import { socket } from "./lib/socket.io";
 import { Logo } from "./Components/Logo";
 
-
 export default function App() {
   const [ roomId, setRoomId ] = useState( "" );
   const [ inRoom, setInRoom ] = useState( false );
@@ -113,14 +112,14 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100 dark:from-slate-900 dark:to-slate-800 p-4 transition-colors duration-300">
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 dark:from-slate-950 dark:to-slate-900 p-4 transition-colors duration-300">
       <div className="max-w-2xl mx-auto">
         {/* Header with Logo and Dark Mode Toggle */ }
         <div className="flex justify-between items-center mb-6">
           <Logo size={ 38 } />
           <button
             onClick={ toggleDarkMode }
-            className="p-2 rounded-full bg-white dark:bg-slate-700 shadow-md hover:shadow-lg transition-all duration-200"
+            className="p-2 rounded-full bg-white dark:bg-slate-800 shadow-md hover:shadow-lg transition-all duration-200"
             aria-label={ darkMode ? "Switch to light mode" : "Switch to dark mode" }
           >
             { darkMode ? <Sun className="w-5 h-5 text-amber-400" /> : <Moon className="w-5 h-5 text-slate-700" /> }
@@ -128,10 +127,10 @@ export default function App() {
         </div>
 
         { !inRoom ? (
-          <div className="bg-white dark:bg-slate-800 rounded-2xl shadow-xl p-8 border border-slate-200 dark:border-slate-700 transition-colors duration-300">
+          <div className="bg-white dark:bg-slate-800 rounded-2xl shadow-xl p-8 border border-gray-200 dark:border-slate-700 transition-colors duration-300">
             <div className="text-center mb-8">
-              <div className="inline-flex items-center justify-center w-16 h-16 bg-blue-100 dark:bg-blue-900 rounded-full mb-4 transition-colors duration-300">
-                <Users className="w-8 h-8 text-blue-600 dark:text-blue-300" />
+              <div className="inline-flex items-center justify-center w-16 h-16 bg-teal-100 dark:bg-teal-900 rounded-full mb-4 transition-colors duration-300">
+                <Users className="w-8 h-8 text-teal-600 dark:text-teal-300" />
               </div>
               <h1 className="text-3xl font-bold text-slate-900 dark:text-white mb-2 transition-colors duration-300">
                 File Share
@@ -155,14 +154,14 @@ export default function App() {
                   placeholder="Enter room ID"
                   value={ roomId }
                   onChange={ ( e ) => setRoomId( e.target.value ) }
-                  className="w-full px-4 py-3 border border-slate-300 dark:border-slate-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all duration-200 text-slate-900 dark:text-white bg-white dark:bg-slate-700 placeholder-slate-400 dark:placeholder-slate-500"
+                  className="w-full px-4 py-3 border border-gray-300 dark:border-slate-600 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent outline-none transition-all duration-200 text-slate-900 dark:text-white bg-white dark:bg-slate-700 placeholder-slate-400 dark:placeholder-slate-500"
                 />
               </div>
 
               <div className="flex gap-3">
                 <button
                   onClick={ createRoom }
-                  className="flex-1 bg-blue-600 hover:bg-blue-700 dark:bg-blue-700 dark:hover:bg-blue-600 text-white font-medium py-3 px-6 rounded-lg transition-colors duration-200 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 dark:focus:ring-offset-slate-800"
+                  className="flex-1 bg-teal-600 hover:bg-teal-700 dark:bg-teal-700 dark:hover:bg-teal-600 text-white font-medium py-3 px-6 rounded-lg transition-colors duration-200 focus:ring-2 focus:ring-teal-500 focus:ring-offset-2 dark:focus:ring-offset-slate-800"
                 >
                   Create Room
                 </button>
@@ -178,7 +177,7 @@ export default function App() {
         ) : (
           <div className="space-y-6">
             {/* Room Header */ }
-            <div className="bg-white dark:bg-slate-800 rounded-2xl shadow-lg p-6 border border-slate-200 dark:border-slate-700 transition-colors duration-300">
+            <div className="bg-white dark:bg-slate-800 rounded-2xl shadow-lg p-6 border border-gray-200 dark:border-slate-700 transition-colors duration-300">
               <div className="flex items-center justify-between">
                 <div>
                   <h2 className="text-2xl font-bold text-slate-900 dark:text-white transition-colors duration-300">
@@ -197,16 +196,16 @@ export default function App() {
 
             {/* File Upload Section */ }
             { isCreator && (
-              <div className="bg-white dark:bg-slate-800 rounded-2xl shadow-lg p-6 border border-slate-200 dark:border-slate-700 transition-colors duration-300">
+              <div className="bg-white dark:bg-slate-800 rounded-2xl shadow-lg p-6 border border-gray-200 dark:border-slate-700 transition-colors duration-300">
                 <h3 className="text-lg font-semibold text-slate-900 dark:text-white mb-4 transition-colors duration-300">
                   Share Files
                 </h3>
                 <div
                   onClick={ triggerFileInput }
-                  className="border-2 border-dashed border-slate-300 dark:border-slate-600 rounded-xl p-8 text-center hover:border-blue-400 dark:hover:border-blue-500 hover:bg-blue-50 dark:hover:bg-slate-700 transition-all duration-200 cursor-pointer group"
+                  className="border-2 border-dashed border-gray-300 dark:border-slate-600 rounded-xl p-8 text-center hover:border-teal-400 dark:hover:border-teal-500 hover:bg-teal-50 dark:hover:bg-slate-700 transition-all duration-200 cursor-pointer group"
                 >
-                  <Upload className="w-12 h-12 text-slate-400 dark:text-slate-500 group-hover:text-blue-500 dark:group-hover:text-blue-400 mx-auto mb-4 transition-colors duration-200" />
-                  <p className="text-slate-600 dark:text-slate-400 group-hover:text-blue-600 dark:group-hover:text-blue-400 font-medium transition-colors duration-200">
+                  <Upload className="w-12 h-12 text-slate-400 dark:text-slate-500 group-hover:text-teal-500 dark:group-hover:text-teal-400 mx-auto mb-4 transition-colors duration-200" />
+                  <p className="text-slate-600 dark:text-slate-400 group-hover:text-teal-600 dark:group-hover:text-teal-400 font-medium transition-colors duration-200">
                     Click to select a file to share
                   </p>
                   <p className="text-sm text-slate-400 dark:text-slate-500 mt-1 transition-colors duration-200">
@@ -218,8 +217,8 @@ export default function App() {
             ) }
 
             {/* Messages Area */ }
-            <div className="bg-white dark:bg-slate-800 rounded-2xl shadow-lg border border-slate-200 dark:border-slate-700 overflow-hidden transition-colors duration-300">
-              <div className="p-6 border-b border-slate-200 dark:border-slate-700 transition-colors duration-300">
+            <div className="bg-white dark:bg-slate-800 rounded-2xl shadow-lg border border-gray-200 dark:border-slate-700 overflow-hidden transition-colors duration-300">
+              <div className="p-6 border-b border-gray-200 dark:border-slate-700 transition-colors duration-300">
                 <h3 className="text-lg font-semibold text-slate-900 dark:text-white transition-colors duration-300">
                   Activity
                 </h3>
@@ -248,11 +247,11 @@ export default function App() {
                       return (
                         <div
                           key={ i }
-                          className="bg-slate-50 dark:bg-slate-700 rounded-lg p-4 border border-slate-200 dark:border-slate-600 transition-colors duration-300"
+                          className="bg-gray-50 dark:bg-slate-700 rounded-lg p-4 border border-gray-200 dark:border-slate-600 transition-colors duration-300"
                         >
                           <div className="flex items-start gap-3">
-                            <div className="w-10 h-10 bg-blue-100 dark:bg-blue-900 rounded-lg flex items-center justify-center flex-shrink-0 transition-colors duration-300">
-                              <FileText className="w-5 h-5 text-blue-600 dark:text-blue-400 transition-colors duration-300" />
+                            <div className="w-10 h-10 bg-teal-100 dark:bg-teal-900 rounded-lg flex items-center justify-center flex-shrink-0 transition-colors duration-300">
+                              <FileText className="w-5 h-5 text-teal-600 dark:text-teal-400 transition-colors duration-300" />
                             </div>
                             <div className="flex-1 min-w-0">
                               <div className="flex items-center gap-2 mb-1">
@@ -268,7 +267,7 @@ export default function App() {
                                 download={ msg.data.name }
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="inline-flex items-center gap-2 text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 font-medium transition-colors duration-200 group"
+                                className="inline-flex items-center gap-2 text-teal-600 dark:text-teal-400 hover:text-teal-700 dark:hover:text-teal-300 font-medium transition-colors duration-200 group"
                               >
                                 <span className="truncate !whitespace-normal">{ msg.data.name }</span>
                                 <Download className="w-4 h-4 group-hover:translate-y-0.5 transition-transform duration-200" />

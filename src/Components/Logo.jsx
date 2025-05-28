@@ -11,7 +11,7 @@ export const Logo = ( { size = 40, className = "" } ) => {
           className="transform transition-transform duration-700 hover:rotate-45"
         >
           {/* Base Circle */ }
-          <circle cx="50" cy="50" r="45" className="fill-blue-500 dark:fill-blue-600" />
+          <circle cx="50" cy="50" r="45" className="fill-teal-500 dark:fill-teal-600" />
 
           {/* Inner Circle */ }
           <circle cx="50" cy="50" r="20" className="fill-white dark:fill-slate-900" />
@@ -32,7 +32,7 @@ export const Logo = ( { size = 40, className = "" } ) => {
         </svg>
       </div>
       <span className="font-bold text-slate-900 dark:text-white text-xl tracking-tight">
-        Ray<span className="text-blue-600 dark:text-blue-400">Share</span>
+        Ray<span className="text-teal-600 dark:text-teal-400">Share</span>
       </span>
     </div>
   );
