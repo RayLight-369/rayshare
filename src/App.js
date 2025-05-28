@@ -270,7 +270,7 @@ export default function App() {
                                 rel="noopener noreferrer"
                                 className="inline-flex items-center gap-2 text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 font-medium transition-colors duration-200 group"
                               >
-                                <span className="truncate">{ msg.data.name }</span>
+                                <span className="truncate !whitespace-normal">{ msg.data.name }</span>
                                 <Download className="w-4 h-4 group-hover:translate-y-0.5 transition-transform duration-200" />
                               </a>
                             </div>
